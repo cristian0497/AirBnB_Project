@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<HTML lang="en">
+  <HEAD>
+    <TITLE>HBNB</TITLE>
+  </HEAD>
+  <BODY>
+    {% if name == 'State' -%}
+    <H1>States</H1>
+    {% elif name != 'No' -%}
+    <H1>State: {{ name }}</H1>
+    <H3>Cities:</H3>
+    {% else -%}
+    <H1>Not found!</H1>
+    {% endif -%}
+    
+    {% if name != 'No' -%}
+    <UL>
+      {% for name, id in query|dictsort(name) -%}
+      <LI>{{ id }}: <B>{{ name }}</B></LI>
+      {% endfor -%}
+    </UL>
+    {% endif -%}
+  </BODY>
+</HTML>
